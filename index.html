@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AADUKALAM HOLIDAYS - Explore Tamil Nadu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1a5276;
+            --secondary: #d35400;
+            --accent: #f39c12;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: #154360;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1594736797933-d0b64c9c53f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Featured Destinations */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 0 15px;
+        }
+
+        .destination-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .destination-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .destination-info {
+            padding: 20px;
+        }
+
+        .destination-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        /* Packages Section */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .package-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .package-info {
+            padding: 20px;
+        }
+
+        .package-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .package-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 10px 0;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Booking Section */
+        .booking-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Testimonials */
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            min-width: 100%;
+            padding: 0 20px;
+        }
+
+        .testimonial-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-content::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: white transparent transparent;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .stars {
+            color: var(--accent);
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background: var(--primary);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 5px solid var(--primary);
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: #f5f5f5;
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            padding: 0 25px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1002;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--dark);
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: var(--shadow);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-btn {
+                border-radius: 5px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>AADUKALAM <span>HOLIDAYS</span></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover the Beauty of Tamil Nadu</h1>
+                <p>Experience the rich culture, breathtaking landscapes, and warm hospitality of Tamil Nadu with AADUKALAM HOLIDAYS</p>
+                <div class="hero-btns">
+                    <a href="#packages" class="btn">Explore Packages</a>
+                    <a href="#booking" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Destinations</h2>
+                <p>Explore our most popular destinations in Tamil Nadu</p>
+            </div>
+            <div class="carousel">
+                <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-track">
+                    <!-- Carousel slides will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Travel Packages</h2>
+                <p>Choose from our carefully curated Tamil Nadu tour packages</p>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="hill">Hill Stations</button>
+                <button class="filter-btn" data-filter="temple">Temples</button>
+                <button class="filter-btn" data-filter="beach">Beaches</button>
+            </div>
+            <div class="packages-grid">
+                <!-- Package cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Photo Gallery</h2>
+                <p>Visual journey through Tamil Nadu's scenic beauty</p>
+            </div>
+            <div class="gallery-grid">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Testimonials</h2>
+                <p>What our travelers say about their experiences</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonials-track">
+                    <!-- Testimonials will be populated by JavaScript -->
+                </div>
+                <div class="testimonial-nav">
+                    <!-- Dots will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Our story, mission, and the team behind AADUKALAM HOLIDAYS</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>AADUKALAM HOLIDAYS was founded in 2010 with a simple mission: to showcase the incredible beauty and cultural richness of Tamil Nadu to travelers from around the world.</p>
+                    <p>What started as a small local tour operator has grown into one of Tamil Nadu's most trusted travel companies, known for our authentic experiences and personalized service.</p>
+                    <h3>Our Mission</h3>
+                    <p>To create unforgettable travel experiences that connect people with Tamil Nadu's heritage, nature, and communities while promoting sustainable tourism practices.</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1586016413664-864c0dd76f53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Tamil Nadu Landscape" style="width: 100%; border-radius: 10px;">
+                </div>
+            </div>
+            <div class="team-grid">
+                <!-- Team members will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our tours</p>
+            </div>
+            <div class="faq-container">
+                <!-- FAQ items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Travel Blog</h2>
+                <p>Insights, tips, and stories from Tamil Nadu</p>
+            </div>
+            <div class="blog-grid">
+                <!-- Blog posts will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our travel experts</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 95241 227267</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@aadukalamholidays.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h3>Instagram</h3>
+                            <p>@aadukalam_holidays</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>123 Temple Street, Madurai, Tamil Nadu 625001</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name">
+                            <div class="error" id="nameError">Please enter your name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your Email">
+                            <div class="error" id="emailError">Please enter a valid email</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Your Phone">
+                            <div class="error" id="phoneError">Please enter a valid phone number</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Your Message"></textarea>
+                            <div class="error" id="messageError">Please enter your message</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book Your Trip</h2>
+                <p>Plan your perfect Tamil Nadu getaway</p>
+            </div>
+            <div class="booking-form">
+                <form id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bookingName">Your Name</label>
+                            <input type="text" id="bookingName" class="form-control" required>
+                            <div class="error" id="bookingNameError">Please enter your name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingEmail">Your Email</label>
+                            <input type="email" id="bookingEmail" class="form-control" required>
+                            <div class="error" id="bookingEmailError">Please enter a valid email</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="destination">Destination</label>
+                            <select id="destination" class="form-control">
+                                <option value="">Select Destination</option>
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                            <div class="error" id="destinationError">Please select a destination</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="travelers">Number of Travelers</label>
+                            <select id="travelers" class="form-control">
+                                <option value="">Select Number</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5+ People</option>
+                            </select>
+                            <div class="error" id="travelersError">Please select number of travelers</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkin">Check-in Date</label>
+                            <input type="date" id="checkin" class="form-control">
+                            <div class="error" id="checkinError">Please select check-in date</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout">Check-out Date</label>
+                            <input type="date" id="checkout" class="form-control">
+                            <div class="error" id="checkoutError">Please select check-out date</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requests</label>
+                        <textarea id="specialRequests" class="form-control" placeholder="Any special requirements or requests"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest travel updates, exclusive offers, and destination guides straight to your inbox</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AADUKALAM HOLIDAYS</h3>
+                    <p>Your trusted partner for exploring the beauty and culture of Tamil Nadu. We create memorable travel experiences that last a lifetime.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#packages">Packages</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Popular Destinations</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Ooty</a></li>
+                        <li><a href="#">Kodaikanal</a></li>
+                        <li><a href="#">Rameswaram</a></li>
+                        <li><a href="#">Madurai</a></li>
+                        <li><a href="#">Kanyakumari</a></li>
+                        <li><a href="#">Mahabalipuram</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Temple Street, Madurai</li>
+                        <li><i class="fas fa-phone"></i> +91 95241 227267</li>
+                        <li><i class="fas fa-envelope"></i> info@aadukalamholidays.com</li>
+                        <li><i class="fab fa-instagram"></i> @aadukalam_holidays</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AADUKALAM HOLIDAYS. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img">
+            <span class="lightbox-close"><i class="fas fa-times"></i></span>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <span class="modal-close"><i class="fas fa-times"></i></span>
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Booking Confirmed!</h2>
+            <p>Thank you for choosing AADUKALAM HOLIDAYS. We've received your booking request and will contact you shortly to confirm the details.</p>
+            <button class="btn btn-primary" id="modalCloseBtn">Close</button>
+        </div>
+    </div>
+
+    <!-- Newsletter Modal -->
+    <div class="modal" id="newsletterModal">
+        <div class="modal-content">
+            <span class="modal-close"><i class="fas fa-times"></i></span>
+            <div class="modal-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h2>Subscription Successful!</h2>
+            <p>Thank you for subscribing to our newsletter. You'll receive our latest travel updates and exclusive offers soon.</p>
+            <button class="btn btn-primary" id="newsletterModalCloseBtn">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Data for the website
+        const destinations = [
+            {
+                id: 1,
+                name: "Ooty",
+                category: "hill",
+                image: "https://images.unsplash.com/photo-1594736797933-d0b64c9c53f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Queen of Hill Stations with lush tea gardens and colonial charm",
+                price: "₹12,999",
+                details: {
+                    itinerary: "3 Days / 2 Nights",
+                    highlights: ["Botanical Gardens", "Ooty Lake", "Doddabetta Peak", "Tea Museum"],
+                    inclusions: ["Accommodation", "Meals", "Sightseeing", "Transport"]
+                }
+            },
+            {
+                id: 2,
+                name: "Kodaikanal",
+                category: "hill",
+                image: "https://images.unsplash.com/photo-1621330396143-859d8db83c4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Princess of Hill Stations with misty valleys and serene lakes",
+                price: "₹11,499",
+                details: {
+                    itinerary: "3 Days / 2 Nights",
+                    highlights: ["Kodaikanal Lake", "Coaker's Walk", "Bryant Park", "Pillar Rocks"],
+                    inclusions: ["Accommodation", "Meals", "Sightseeing", "Transport"]
+                }
+            },
+            {
+                id: 3,
+                name: "Rameswaram",
+                category: "temple",
+                image: "https://images.unsplash.com/photo-1592210459276-594a5afa6a4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80",
+                description: "Sacred island town with legendary Ramanathaswamy Temple",
+                price: "₹9,999",
+                details: {
+                    itinerary: "2 Days / 1 Night",
+                    highlights: ["Ramanathaswamy Temple", "Dhanushkodi", "Agni Theertham", "Pamban Bridge"],
+                    inclusions: ["Accommodation", "Meals", "Sightseeing", "Transport"]
+                }
+            },
+            {
+                id: 4,
+                name: "Madurai",
+                category: "temple",
+                image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Athens of the East with magnificent Meenakshi Temple",
+                price: "₹8,499",
+                details: {
+                    itinerary: "2 Days / 1 Night",
+                    highlights: ["Meenakshi Temple", "Thirumalai Nayakkar Palace", "Gandhi Museum", "Alagar Kovil"],
+                    inclusions: ["Accommodation", "Meals", "Sightseeing", "Transport"]
+                }
+            },
+            {
+                id: 5,
+                name: "Kanyakumari",
+                category: "beach",
+                image: "https://images.unsplash.com/photo-1594736797933-d0b64c9c53f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Land's End where three seas meet with spectacular sunrises",
+                price: "₹10,499",
+                details: {
+                    itinerary: "2 Days / 1 Night",
+                    highlights: ["Vivekananda Rock", "Thiruvalluvar Statue", "Sunrise Viewpoint", "Kumari Amman Temple"],
+                    inclusions: ["Accommodation", "Meals", "Sightseeing", "Transport"]
+                }
+            },
+            {
+                id: 6,
+                name: "Thanjavur",
+                category: "temple",
+                image: "https://images.unsplash.com/photo-1586016413664-864c0dd76f53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Cultural capital with the magnificent Brihadeeswarar Temple",
+                price: "₹7,999",
+                details: {
+                    itinerary: "2 Days / 1 Night",
+                    highlights: ["Brihadeeswarar Temple", "Thanjavur Palace", "Art Gallery", "Saraswathi Mahal Library"],
+                    inclusions: ["Accommodation", "Meals", "Sightseeing", "Transport"]
+                }
+            },
+            {
+                id: 7,
+                name: "Yercaud",
+                category: "hill",
+                image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Jewel of the South with coffee plantations and orange groves",
+                price: "₹9,499",
+                details: {
+                    itinerary: "2 Days / 1 Night",
+                    highlights: ["Yercaud Lake", "Killiyur Falls", "Pagoda Point", "Botanical Garden"],
+                    inclusions: ["Accommodation", "Meals", "Sightseeing", "Transport"]
+                }
+            },
+            {
+                id: 8,
+                name: "Hogenakkal",
+                category: "beach",
+                image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2075&q=80",
+                description: "Niagara of India with stunning waterfalls and coracle rides",
+                price: "₹6,999",
+                details: {
+                    itinerary: "1 Day",
+                    highlights: ["Hogenakkal Falls", "Coracle Ride", "Carbonatite Rocks", "Fish Therapy"],
+                    inclusions: ["Transport", "Guide", "Coracle Ride", "Meals"]
+                }
+            },
+            {
+                id: 9,
+                name: "Mahabalipuram",
+                category: "beach",
+                image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80",
+                description: "UNESCO World Heritage site with ancient rock-cut temples",
+                price: "₹8,999",
+                details: {
+                    itinerary: "2 Days / 1 Night",
+                    highlights: ["Shore Temple", "Pancha Rathas", "Arjuna's Penance", "Krishna's Butterball"],
+                    inclusions: ["Accommodation", "Meals", "Sightseeing", "Transport"]
+                }
+            },
+            {
+                id: 10,
+                name: "Courtallam",
+                category: "hill",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Spa of South India with therapeutic waterfalls",
+                price: "₹7,499",
+                details: {
+                    itinerary: "2 Days / 1 Night",
+                    highlights: ["Main Falls", "Five Falls", "Old Courtallam", "Shenbagadevi Temple"],
+                    inclusions: ["Accommodation", "Meals", "Sightseeing", "Transport"]
+                }
+            }
+        ];
+
+        const testimonials = [
+            {
+                name: "Priya Sharma",
+                location: "Mumbai",
+                text: "Our family trip to Ooty organized by AADUKALAM HOLIDAYS was absolutely perfect. The accommodations, transportation, and guided tours were all top-notch. We'll definitely book with them again!",
+                rating: 5,
+                image: "https://randomuser.me/api/portraits/women/32.jpg"
+            },
+            {
+                name: "Rajesh Kumar",
+                location: "Delhi",
+                text: "The Madurai temple tour exceeded our expectations. Our guide was knowledgeable and the itinerary was well-planned. The highlight was the evening ceremony at Meenakshi Temple - truly magical!",
+                rating: 5,
+                image: "https://randomuser.me/api/portraits/men/54.jpg"
+            },
+            {
+                name: "Anita Reddy",
+                location: "Bangalore",
+                text: "Kodaikanal in the monsoon was a dream! AADUKALAM HOLIDAYS handled everything seamlessly despite the weather challenges. Special thanks to the team for their flexibility and excellent service.",
+                rating: 4,
+                image: "https://randomuser.me/api/portraits/women/68.jpg"
+            },
+            {
+                name: "Vikram Singh",
+                location: "Chennai",
+                text: "We've taken multiple trips with AADUKALAM HOLIDAYS and they never disappoint. Their attention to detail and customer service is exceptional. Highly recommended for exploring Tamil Nadu!",
+                rating: 5,
+                image: "https://randomuser.me/api/portraits/men/76.jpg"
+            }
+        ];
+
+        const teamMembers = [
+            {
+                name: "Arun Kumar",
+                role: "Founder & CEO",
+                image: "https://randomuser.me/api/portraits/men/32.jpg",
+                bio: "With over 15 years in the tourism industry, Arun founded AADUKALAM HOLIDAYS to share his passion for Tamil Nadu's rich heritage."
+            },
+            {
+                name: "Meena Sundar",
+                role: "Travel Curator",
+                image: "https://randomuser.me/api/portraits/women/44.jpg",
+                bio: "Meena designs our unique travel experiences, combining her knowledge of Tamil culture with modern tourism trends."
+            },
+            {
+                name: "Karthik Raja",
+                role: "Operations Manager",
+                image: "https://randomuser.me/api/portraits/men/67.jpg",
+                bio: "Karthik ensures every aspect of your journey runs smoothly, from transportation to accommodation and activities."
+            },
+            {
+                name: "Divya Prakash",
+                role: "Customer Relations",
+                image: "https://randomuser.me/api/portraits/women/28.jpg",
+                bio: "Divya is your point of contact before, during, and after your trip, dedicated to making your experience unforgettable."
+            }
+        ];
+
+        const faqs = [
+            {
+                question: "What is the best time to visit Tamil Nadu?",
+                answer: "The ideal time to visit Tamil Nadu is from October to March when the weather is pleasant. Hill stations like Ooty and Kodaikanal are beautiful year-round, while coastal areas are best visited in winter."
+            },
+            {
+                question: "Are your tours suitable for senior citizens?",
+                answer: "Yes, we offer customized itineraries with comfortable pacing, accessible accommodations, and special assistance for senior travelers. Please inform us of any specific requirements when booking."
+            },
+            {
+                question: "What is included in your tour packages?",
+                answer: "Our packages typically include accommodation, meals as specified, transportation, sightseeing, and the services of a guide. Specific inclusions vary by package, so please check the details of your selected tour."
+            },
+            {
+                question: "Can I customize my itinerary?",
+                answer: "Absolutely! We specialize in creating personalized travel experiences. Contact us with your preferences, and we'll design an itinerary that matches your interests, budget, and schedule."
+            },
+            {
+                question: "What safety measures do you have in place?",
+                answer: "Your safety is our priority. We work with verified partners, maintain vehicles to high safety standards, provide experienced guides, and offer 24/7 support during your travels."
+            }
+        ];
+
+        const blogPosts = [
+            {
+                title: "10 Hidden Gems in Tamil Nadu You Must Visit",
+                excerpt: "Discover lesser-known but breathtaking destinations across Tamil Nadu that offer unique experiences away from the crowds.",
+                image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                date: "June 15, 2023",
+                category: "Travel Tips"
+            },
+            {
+                title: "A Culinary Journey Through Tamil Nadu",
+                excerpt: "Explore the diverse and flavorful cuisine of Tamil Nadu, from Chennai's street food to Chettinad's fiery delicacies.",
+                image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1971&q=80",
+                date: "May 28, 2023",
+                category: "Food & Culture"
+            },
+            {
+                title: "Temple Architecture of Tamil Nadu: A Visual Guide",
+                excerpt: "Learn about the evolution of Dravidian architecture through Tamil Nadu's magnificent temples, from ancient rock-cut structures to grand gopurams.",
+                image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                date: "April 12, 2023",
+                category: "Heritage"
+            }
+        ];
+
+        const galleryImages = [
+            "https://images.unsplash.com/photo-1594736797933-d0b64c9c53f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+            "https://images.unsplash.com/photo-1621330396143-859d8db83c4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+            "https://images.unsplash.com/photo-1592210459276-594a5afa6a4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80",
+            "https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+            "https://images.unsplash.com/photo-1586016413664-864c0dd76f53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+            "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+            "https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2075&q=80",
+            "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80"
+        ];
+
+        // DOM Elements
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const carouselTrack = document.querySelector('.carousel-track');
+        const prevBtn = document.querySelector('.carousel-btn.prev');
+        const nextBtn = document.querySelector('.carousel-btn.next');
+        const packagesGrid = document.querySelector('.packages-grid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryGrid = document.querySelector('.gallery-grid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.querySelector('.lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const testimonialsTrack = document.querySelector('.testimonials-track');
+        const testimonialNav = document.querySelector('.testimonial-nav');
+        const teamGrid = document.querySelector('.team-grid');
+        const faqContainer = document.querySelector('.faq-container');
+        const blogGrid = document.querySelector('.blog-grid');
+        const contactForm = document.getElementById('contactForm');
+        const bookingForm = document.getElementById('bookingForm');
+        const destinationSelect = document.getElementById('destination');
+        const newsletterForm = document.getElementById('newsletterForm');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const newsletterModal = document.getElementById('newsletterModal');
+        const modalCloseBtns = document.querySelectorAll('.modal-close, #modalCloseBtn, #newsletterModalCloseBtn');
+
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            initCarousel();
+            initPackages();
+            initGallery();
+            initTestimonials();
+            initTeam();
+            initFAQ();
+            initBlog();
+            initDestinationSelect();
+            initForms();
+            initModal();
+        });
+
+        // Mobile Navigation Toggle
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Initialize Featured Destinations Carousel
+        function initCarousel() {
+            // Add first 3 destinations to carousel
+            const featuredDestinations = destinations.slice(0, 3);
+            
+            featuredDestinations.forEach(destination => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.innerHTML = `
+                    <div class="destination-card">
+                        <img src="${destination.image}" alt="${destination.name}" class="destination-img">
+                        <div class="destination-info">
+                            <h3>${destination.name}</h3>
+                            <p>${destination.description}</p>
+                            <div class="package-price">From ${destination.price}</div>
+                            <button class="btn view-details-btn" data-id="${destination.id}">View Details</button>
+                        </div>
+                    </div>
+                `;
+                carouselTrack.appendChild(slide);
+            });
+
+            // Set up carousel navigation
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            
+            function goToSlide(index) {
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+                
+                carouselTrack.style.transform = `translateX(-${index * 100}%)`;
+                currentSlide = index;
+            }
+            
+            prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+            nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+            
+            // Auto-advance carousel
+            setInterval(() => goToSlide(currentSlide + 1), 5000);
+        }
+
+        // Initialize Packages Grid
+        function initPackages() {
+            renderPackages(destinations);
+            
+            // Filter functionality
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    if (filter === 'all') {
+                        renderPackages(destinations);
+                    } else {
+                        const filtered = destinations.filter(d => d.category === filter);
+                        renderPackages(filtered);
+                    }
+                });
+            });
+        }
+
+        function renderPackages(packages) {
+            packagesGrid.innerHTML = '';
+            
+            packages.forEach(pkg => {
+                const card = document.createElement('div');
+                card.className = 'package-card';
+                card.innerHTML = `
+                    <img src="${pkg.image}" alt="${pkg.name}" class="package-img">
+                    <div class="package-info">
+                        <h3>${pkg.name}</h3>
+                        <p>${pkg.description}</p>
+                        <div class="package-price">From ${pkg.price}</div>
+                        <button class="btn view-details-btn" data-id="${pkg.id}">View Details</button>
+                    </div>
+                `;
+                packagesGrid.appendChild(card);
+            });
+            
+            // Add event listeners to view details buttons
+            document.querySelectorAll('.view-details-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    const destination = destinations.find(d => d.id === id);
+                    showDestinationDetails(destination);
+                });
+            });
+        }
+
+        function showDestinationDetails(destination) {
+            // In a real implementation, this would open a modal or new page
+            // For this demo, we'll use an alert
+            alert(`Destination: ${destination.name}\nPrice: ${destination.price}\nItinerary: ${destination.details.itinerary}\nHighlights: ${destination.details.highlights.join(', ')}`);
+        }
+
+        // Initialize Gallery
+        function initGallery() {
+            galleryImages.forEach((imgSrc, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `<img src="${imgSrc}" alt="Gallery Image ${index + 1}" class="gallery-img">`;
+                galleryGrid.appendChild(item);
+                
+                item.addEventListener('click', () => openLightbox(imgSrc));
+            });
+        }
+
+        function openLightbox(imgSrc) {
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Initialize Testimonials
+        function initTestimonials() {
+            testimonials.forEach((testimonial, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'testimonial';
+                slide.innerHTML = `
+                    <div class="testimonial-content">
+                        <p>"${testimonial.text}"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="${testimonial.image}" alt="${testimonial.name}" class="author-img">
+                        <div class="author-info">
+                            <h4>${testimonial.name}</h4>
+                            <p>${testimonial.location}</p>
+                            <div class="stars">
+                                ${'★'.repeat(testimonial.rating)}${'☆'.repeat(5 - testimonial.rating)}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                testimonialsTrack.appendChild(slide);
+                
+                // Create navigation dot
+                const dot = document.createElement('div');
+                dot.className = `testimonial-dot ${index === 0 ? 'active' : ''}`;
+                dot.setAttribute('data-index', index);
+                testimonialNav.appendChild(dot);
+                
+                dot.addEventListener('click', function() {
+                    goToTestimonial(index);
+                });
+            });
+            
+            // Auto-advance testimonials
+            let currentTestimonial = 0;
+            setInterval(() => {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                goToTestimonial(currentTestimonial);
+            }, 6000);
+        }
+
+        function goToTestimonial(index) {
+            testimonialsTrack.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update active dot
+            document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            
+            currentTestimonial = index;
+        }
+
+        // Initialize Team Section
+        function initTeam() {
+            teamMembers.forEach(member => {
+                const teamMember = document.createElement('div');
+                teamMember.className = 'team-member';
+                teamMember.innerHTML = `
+                    <img src="${member.image}" alt="${member.name}" class="team-img">
+                    <h3>${member.name}</h3>
+                    <p class="role">${member.role}</p>
+                    <p>${member.bio}</p>
+                `;
+                teamGrid.appendChild(teamMember);
+            });
+        }
+
+        // Initialize FAQ Section
+        function initFAQ() {
+            faqs.forEach((faq, index) => {
+                const item = document.createElement('div');
+                item.className = 'faq-item';
+                item.innerHTML = `
+                    <div class="faq-question">
+                        <span>${faq.question}</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>${faq.answer}</p>
+                    </div>
+                `;
+                faqContainer.appendChild(item);
+                
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initialize Blog Section
+        function initBlog() {
+            blogPosts.forEach(post => {
+                const card = document.createElement('div');
+                card.className = 'blog-card';
+                card.innerHTML = `
+                    <img src="${post.image}" alt="${post.title}" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>${post.date}</span>
+                            <span>${post.category}</span>
+                        </div>
+                        <h3>${post.title}</h3>
+                        <p>${post.excerpt}</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                `;
+                blogGrid.appendChild(card);
+            });
+        }
+
+        // Initialize Destination Select in Booking Form
+        function initDestinationSelect() {
+            destinations.forEach(destination => {
+                const option = document.createElement('option');
+                option.value = destination.name;
+                option.textContent = destination.name;
+                destinationSelect.appendChild(option);
+            });
+        }
+
+        // Initialize Forms
+        function initForms() {
+            // Contact Form Validation
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                
+                // Name validation
+                const name = document.getElementById('name');
+                const nameError = document.getElementById('nameError');
+                if (!name.value || !name.value.trim()) {
+                    nameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    nameError.style.display = 'none';
+                }
+                
+                // Email validation
+                const email = document.getElementById('email');
+                const emailError = document.getElementById('emailError');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email.value || !email.value.trim() || !emailRegex.test(email.value)) {
+                    emailError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    emailError.style.display = 'none';
+                }
+                
+                // Phone validation
+                const phone = document.getElementById('phone');
+                const phoneError = document.getElementById('phoneError');
+                if (!phone.value || !phone.value.trim()) {
+                    phoneError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    phoneError.style.display = 'none';
+                }
+                
+                // Message validation
+                const message = document.getElementById('message');
+                const messageError = document.getElementById('messageError');
+                if (!message.value || !message.value.trim()) {
+                    messageError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    messageError.style.display = 'none';
+                }
+                
+                if (isValid) {
+                    // Submit form via AJAX to backend with explicit data
+                    const data = new URLSearchParams();
+                    data.append('name', name.value);
+                    data.append('email', email.value);
+                    data.append('phone', phone.value);
+                    data.append('message', message.value);
+                    
+                    fetch('http://localhost:3000/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name: name.value,
+                            email: email.value,
+                            phone: phone.value,
+                            message: message.value
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            alert(data.message);
+                            contactForm.reset();
+                        } else {
+                            alert('Error: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while sending your message. Please try again.');
+                    });
+                } else {
+                    // Show validation errors
+                    alert('Please fill in all required fields correctly.');
+                }
+            });
+            
+            // Booking Form Validation
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                
+                // Destination validation
+                const destination = document.getElementById('destination');
+                const destinationError = document.getElementById('destinationError');
+                if (!destination.value || !destination.value.trim()) {
+                    destinationError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    destinationError.style.display = 'none';
+                }
+                
+                // Travelers validation
+                const travelers = document.getElementById('travelers');
+                const travelersError = document.getElementById('travelersError');
+                if (!travelers.value || !travelers.value.trim()) {
+                    travelersError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    travelersError.style.display = 'none';
+                }
+                
+                // Check-in validation
+                const checkin = document.getElementById('checkin');
+                const checkinError = document.getElementById('checkinError');
+                if (!checkin.value || !checkin.value.trim()) {
+                    checkinError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    checkinError.style.display = 'none';
+                }
+                
+                // Check-out validation
+                const checkout = document.getElementById('checkout');
+                const checkoutError = document.getElementById('checkoutError');
+                if (!checkout.value || !checkout.value.trim()) {
+                    checkoutError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    checkoutError.style.display = 'none';
+                }
+                
+                if (isValid) {
+                    // Get form values
+                    const name = document.getElementById('bookingName').value.trim();
+                    const email = document.getElementById('bookingEmail').value.trim();
+                    
+                    // Additional validation for name and email
+                    if (!name) {
+                        document.getElementById('bookingNameError').style.display = 'block';
+                        isValid = false;
+                    }
+                    
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!email || !emailRegex.test(email)) {
+                        document.getElementById('bookingEmailError').style.display = 'block';
+                        isValid = false;
+                    }
+                    
+                    if (!isValid) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    // Create booking data object
+                    const bookingData = {
+                        name: name,
+                        email: email,
+                        destination: destination.value,
+                        numTravelers: parseInt(travelers.value),
+                        date: checkin.value,
+                        specialRequests: document.querySelector('#specialRequests')?.value || ''
+                    };
+
+                    // Log the data being sent
+                    console.log('Sending booking data:', bookingData);
+
+                    fetch('http://localhost:3000/api/bookings', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(bookingData)
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            return response.json().then(err => Promise.reject(err));
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.status === 'success') {
+                            // Show confirmation modal
+                            confirmationModal.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                            bookingForm.reset();
+                            // Reset error messages
+                            document.querySelectorAll('.error').forEach(err => err.style.display = 'none');
+                        } else {
+                            alert('Error: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while processing your booking. Please try again.');
+                    });
+                } else {
+                    // Show validation errors
+                    alert('Please fill in all required fields correctly.');
+                }
+            });
+            
+            // Newsletter Form
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = this.querySelector('input[type="email"]');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (email.value && emailRegex.test(email.value)) {
+                    // Submit form via AJAX to backend with explicit data
+                    const data = new URLSearchParams();
+                    data.append('email', email.value);
+                    
+                    fetch('http://localhost:3000/api/newsletter', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: email.value
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            // Show newsletter modal
+                            newsletterModal.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                            newsletterForm.reset();
+                        } else {
+                            alert('Error: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while subscribing. Please try again.');
+                    });
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            });
+        }
+
+        // Initialize Modal Functionality
+        function initModal() {
+            modalCloseBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    confirmationModal.classList.remove('active');
+                    newsletterModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // Close modal when clicking outside content
+            [confirmationModal, newsletterModal].forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
