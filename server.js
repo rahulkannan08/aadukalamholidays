@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config(); // load MONGODB_URI from .env
+require('dotenv').config(); // load .env locally
+
 const app = express();
 
 // Middleware
@@ -10,16 +11,15 @@ app.use(express.json());
 app.use(express.static('.')); // Serve static files from current directory
 
 // MongoDB Connection (Atlas)
-const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/aadukalamholidays';
+const mongoUri = process.env.MONGODB_URI;
+if (!mongoUri) console.error('MONGODB_URI not set — set it in Render env vars');
+
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => {
-      console.error('MongoDB connection error:', err);
-      process.exit(1);
-  });
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 // Schema Definitions
 const destinationSchema = new mongoose.Schema({
@@ -230,7 +230,7 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
