@@ -1,7 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config(); // load .env locally
+const path = require('path');
+const dotenv = require('dotenv');
+
+// try loading .env from several likely locations (safe: no secret printing)
+dotenv.config(); // default (same dir as server.js)
+dotenv.config({ path: path.resolve(process.cwd(), '.env') }); // repo root
+dotenv.config({ path: path.resolve(process.cwd(), 'ProjectX', '.env') }); // nested ProjectX/.env
 
 const app = express();
 
@@ -14,7 +20,8 @@ app.use(express.static('.')); // Serve static files from current directory
 const mongoUri = process.env.MONGODB_URI;
 
 if (!mongoUri) {
-    console.error('MONGODB_URI not set — set it in Render env vars (or locally in .env). Exiting.');
+    console.error('MONGODB_URI not set — set it in Render env vars (or place a .env in the working dir). Exiting.');
+    console.error('Tip: In Render dashboard → your service → Environment → Environment Variables add key "MONGODB_URI" (no quotes, no spaces). Then redeploy/restart the service.');
     process.exit(1); // stop startup so deploy fails clearly instead of throwing a confusing mongoose error
 }
 
