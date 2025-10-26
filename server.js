@@ -22,15 +22,51 @@ const mongoUri = process.env.MONGODB_URI;
 if (!mongoUri) {
     console.error('MONGODB_URI not set — set it in Render env vars (or place a .env in the working dir). Exiting.');
     console.error('Tip: In Render dashboard → your service → Environment → Environment Variables add key "MONGODB_URI" (no quotes, no spaces). Then redeploy/restart the service.');
-    process.exit(1); // stop startup so deploy fails clearly instead of throwing a confusing mongoose error
+    process.exit(1);
 }
 
-mongoose.connect(mongoUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+// optional: fewer buffered ops and faster failures
+const mongooseOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000 // fail fast if cannot connect
+};
+
+// connection event logging
+mongoose.connection.on('connected', () => console.log('Mongoose connected'));
+mongoose.connection.on('error', (err) => console.error('Mongoose connection error:', err));
+mongoose.connection.on('disconnected', () => console.warn('Mongoose disconnected'));
+
+async function connectWithRetry(retries = 5, delayMs = 2000) {
+  for (let i = 1; i <= retries; i++) {
+    try {
+      await mongoose.connect(mongoUri, mongooseOptions);
+      console.log('MongoDB connected');
+      return;
+    } catch (err) {
+      console.error(`MongoDB connect attempt ${i} failed: ${err.message}`);
+      if (i === retries) throw err;
+      await new Promise(res => setTimeout(res, delayMs * i)); // exponential-ish backoff
+    }
+  }
+}
+
+async function startServer() {
+  try {
+    await connectWithRetry();
+  } catch (err) {
+    console.error('Failed to connect to MongoDB after retries. Exiting.');
+    process.exit(1);
+  }
+
+  // Start express only after DB is ready
+  const PORT = process.env.PORT || 10000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+startServer();
 
 // Schema Definitions
 const destinationSchema = new mongoose.Schema({
@@ -238,10 +274,4 @@ app.post('/api/contact', async (req, res) => {
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ error: 'Something went wrong!' });
-});
-
-// Start server
-const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
 });
