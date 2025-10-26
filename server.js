@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.static('.')); // Serve static files from current directory
 
 // MongoDB Connection (Atlas)
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/travelDB';
+const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/aadukalamholidays';
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
