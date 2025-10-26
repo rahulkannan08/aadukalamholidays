@@ -12,7 +12,11 @@ app.use(express.static('.')); // Serve static files from current directory
 
 // MongoDB Connection (Atlas)
 const mongoUri = process.env.MONGODB_URI;
-if (!mongoUri) console.error('MONGODB_URI not set — set it in Render env vars');
+
+if (!mongoUri) {
+    console.error('MONGODB_URI not set — set it in Render env vars (or locally in .env). Exiting.');
+    process.exit(1); // stop startup so deploy fails clearly instead of throwing a confusing mongoose error
+}
 
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
